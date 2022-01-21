@@ -1,3 +1,23 @@
+function creatE(dat){
+    const ulD = document.getElementById('list')
+    const liE = document.createElement('li')
+    liE.className = 'list-group-item oline'
+    liE.innerHTML = `${dat}`
+    ulD.appendChild(liE)
+    sessionStorage.setItem(`${dat}`,null)
+    liE.addEventListener("click",function(){
+        liE.remove()
+        sessionStorage.removeItem(liE.innerText)
+    })
+}
+const keys = Object.keys(sessionStorage);
+for(const key of keys) {
+    console.log(key)
+    creatE(key)
+}
+
+
+
 function addList(){
     // getting the text value from input
     const data = document.getElementById('TextValue')
@@ -10,21 +30,9 @@ function addList(){
         setTimeout(() => {alert.remove()}, 3000);
     }
     else{
-    console.log(data.value)
-
-    // making li element <li class="list-group-item oline" aria-current="true">An active item</li>
-    // in  <ul class="list-group ps-5 pe-5">
-    const ulD = document.getElementById('list')
-    const liE = document.createElement('li')
-    liE.className = 'list-group-item oline'
-    liE.innerHTML = `${data.value}`
-    ulD.appendChild(liE)
-    data.value = ""
-
-    liE.addEventListener("click", function(){
-        liE.remove()
-    })
+        creatE(data.value)
+        data.value = ""
     }
-}
 
+}
 
