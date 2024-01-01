@@ -20,3 +20,5 @@ A simple web page for creating and managing to-do lists. Built with HTML, Bootst
 ## Usage
 
 Open `index.html` in a browser to use the app. Customize or contribute as needed.
+
+Or [click here](https://dbsaw.github.io/Simple-Todo-List/) to try it
